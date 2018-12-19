@@ -1,0 +1,41 @@
+<div>
+  <nav class="navbar" style="text-align: center;">
+    <div class="container-fluid">
+      <div class="navbar-header">
+          <h1>
+              Pets currently in our shelter
+            </h1>
+      </div>
+      <div class="navbar">
+        <a class="navbar-brand" [routerLink]="['/pet/new']"><button class="btn btn-primary">Do you have a pet up for adoption?</button></a>
+      </div>
+    </div>
+  </nav>
+  <table class="table">
+      <thead>
+        <tr>
+          <th>Pet Name</th>
+          <th>Pet Type</th>
+          <th>Pet Description</th>
+          <th>Pet Skill One</th>
+          <th>Pet Skill Two</th>
+          <th>Pet Skill Three</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pet of pets">
+          <td> {{ pet.name }} </td>
+          <td> {{ pet.type }} </td>
+          <td> {{ pet.description }}</td>
+          <td> {{ pet.skills.skillone }}</td>
+          <td> {{ pet.skills.skilltwo }}</td>
+          <td> {{ pet.skills.skillthree }}</td>
+          <td>
+            <a [routerLink]="['/pet', pet._id]"><button class = 'btn btn-success'>Pet Details</button></a>
+            <a [routerLink]="['/edit', pet._id]"><button class = 'btn btn-default'>Edit details</button></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>

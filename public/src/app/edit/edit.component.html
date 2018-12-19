@@ -1,0 +1,49 @@
+<div *ngIf="pet">
+    <form (submit)="update(pet._id)">
+        <div class ="form-group">
+          <label for="pet.name">Pet name: </label>
+          <div>
+            <input type="text" name="pet.name" [(ngModel)]="pet.name" placeholder="Name" required minlength='3' #petname="ngModel">
+            <p *ngIf="petname.errors">Pet Name is Required (3 characters minimum)</p>
+
+          </div>
+        </div>
+
+        <div class ="form-group">
+          <label for="pet.description">Description: </label>
+          <div>
+            <input type="text" name="pet.description" [(ngModel)]="pet.description" placeholder="Description" required minlength='3' #petdescription="ngModel">
+            <p *ngIf="petdescription.errors">Description is Required (3 characters minimum)</p>
+
+          </div>
+          </div>
+
+        <div class = "form-group">
+          <label for="pet.type">Type: </label>
+          <input type="text" name="pet.type" [(ngModel)]="pet.type" placeholder="Type" required minlength='3' #pettype="ngModel">
+          <p *ngIf="pettype.errors">Type is Required (3 characters minimum)</p>
+
+
+
+        </div>
+        <div class = "form-group">
+          <label for="pet.skill">List your pets skills! (Optional): </label>
+          <div>
+            <textarea name="petskillone" [(ngModel)]="pet.skills.skillone" cols=50 rows=5 required minlength='3' #petskillone="ngModel"></textarea>
+
+          </div>
+
+          <div>
+              <textarea name="petskilltwo" [(ngModel)]="pet.skills.skilltwo" cols=50 rows=5 required minlength='3' #petskilltwo="ngModel"></textarea>
+
+            </div>
+            <div>
+                <textarea name="petskillthree" [(ngModel)]="pet.skills.skillthree" cols=50 rows=5 required minlength='3' #petskillthree="ngModel"></textarea>
+
+              </div>
+
+        </div>
+      <input type="submit" value="Update a Pet" class='btn btn-success'/>
+    </form>
+
+  </div>

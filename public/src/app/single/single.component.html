@@ -1,0 +1,34 @@
+<div>
+    <nav class="navbar" style="text-align: center;">
+      <div class="container-fluid">
+        <div class="navbar-header">
+            <h1>
+                Details for {{ pet.name }}
+              </h1>
+        </div>
+        <div class="navbar">
+          <button class='btn btn-danger' (click) = "delete(pet._id)">Adpot This Pet!</button>
+        </div>
+      </div>
+    </nav>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Description</th>
+            <th>First Skill</th>
+            <th>Second Skill</th>
+            <th>Third Skill</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="pet">
+            <td> {{ pet.type }} </td>
+            <td> {{ pet.description }} </td>
+            <td> {{ pet.skills.skillone }} </td>
+            <td> {{ pet.skills.skilltwo }}</td>
+            <td> {{ pet.skills.skillthree }}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>

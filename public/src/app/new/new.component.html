@@ -1,0 +1,53 @@
+<form (submit)="create()">
+  <div class ="form-group">
+    <label for="pet.name">Pet name: </label>
+    <div>
+      <input type="text" name="pet.name" [(ngModel)]="pet.name" placeholder="Name" required minlength='3' #petname="ngModel">
+      <p *ngIf="petname.errors">Pet Name is Required (3 characters minimum)</p>
+      <p *ngIf="errors.name"> {{errors.name.message }}</p>
+    </div>
+  </div>
+
+  <div class ="form-group">
+    <label for="pet.description">Description: </label>
+    <div>
+      <input type="text" name="pet.description" [(ngModel)]="pet.description" placeholder="Description" required minlength='3' #petdescription="ngModel">
+      <p *ngIf="petdescription.errors">Description is Required (3 characters minimum)</p>
+      <p *ngIf="errors.description"> {{errors.description.message }}</p>
+    </div>
+  </div>
+
+  <div class = "form-group">
+    <label for="pet.type">Type: </label>
+    <div>
+        <input type="text" name="pet.type" [(ngModel)]="pet.type" placeholder="Description" required minlength='3' #pettype="ngModel">
+        <p *ngIf="pettype.errors">Description is Required (3 characters minimum)</p>
+        <p *ngIf="errors.type"> {{ errors.type.message }}</p>
+      </div>
+
+
+  </div>
+  <div class = "form-group">
+    <label for="pet.skill">List your pets skills! (Optional): </label>
+    <div>
+      <textarea name="petskillone" [(ngModel)]="pet.skills.skillone" cols=50 rows=5 required minlength='3' #petskillone="ngModel"></textarea>
+      <p *ngIf="petskillone.errors"></p>
+      <p *ngIf="errors.skillone"> {{errors.skillone.message }}</p>
+    </div>
+
+    <div>
+        <textarea name="petskilltwo" [(ngModel)]="pet.skills.skilltwo" cols=50 rows=5 required minlength='3' #petskilltwo="ngModel"></textarea>
+        <p *ngIf="petskilltwo.errors"></p>
+        <p *ngIf="errors.skilltwo"> {{errors.skilltwo.message }}</p>
+    </div>
+
+    <div>
+          <textarea name="petskillthree" [(ngModel)]="pet.skills.skillthree" cols=50 rows=5 required minlength='3' #petskillthree="ngModel"></textarea>
+          <p *ngIf="petskillthree.errors"></p>
+          <p *ngIf="errors.skillthree"> {{errors.skillthree.message }}</p>
+    </div>
+  </div>
+
+  <input type="submit" value="Submit" class='btn btn-success'/>
+  <a [routerLink]="['/']"><button class="btn btn-primary">Cancel</button></a>
+</form>
